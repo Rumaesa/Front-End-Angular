@@ -1,7 +1,80 @@
-<p>appointment-list works!</p>
+<!-- <p>appointment-list works!</p>
 <p>{{ appointment.id }}</p>
 <p>{{ appointment.title }}</p>
-<p>{{ appointment.date }}</p>
-<!-- //create an interface using CLI, -->
+<p>{{ appointment.date }}</p> -->
+
+<!-- create an interface using CLI, -->
 <!--  Use it in Type Script -->
 <!-- show it on UI -->
+
+<!-- Two Way Data Binding step2:  -->
+<!-- <div> 
+ Step6: using ngModel to link the input with the newAppointmentTitle field in the --component.ts file 
+  <input
+    [(ngModel)]="newAppointmentTitle"
+    type="text"
+    placeholder="Appointment Description"
+  />
+  <input [(ngModel)]="newAppointmentDate" type="date" placeholder="Date" />
+   Step7: Added click event, but it need a method to be executed when the click event happen on this button so create a method in -component.ts file (step:8)  
+  <button (click)="addAppointment()">Add</button>
+
+  <ul>
+    <li *ngFor="let appointment of appointments; index as i">
+      {{ appointment.id }} {{ appointment.title }}
+      {{ appointment.date | date : "DD-MM-YYYY" }}
+      <button (click)="deleteAppointment(i)">Delete</button>
+    </li>
+  </ul>
+</div> -->
+
+<!-- Adding Bootstrap -->
+
+<div class="container">
+  <div class="card mt-3">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center">Create New Appointment</h1>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <input
+          [(ngModel)]="newAppointmentTitle"
+          type="text"
+          placeholder="Appointment Description"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <input
+          [(ngModel)]="newAppointmentDate"
+          type="date"
+          placeholder="Date"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-md-2">
+        <button (click)="addAppointment()" class="btn btn-primary w-100">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="text-center mt-5">Appointments</h2>
+  <ul class="list-group mt-3">
+    <li
+      class="list-group-item d-flex justify-content-between align-item-center"
+      *ngFor="let appointment of appointments; index as i"
+    >
+      {{ appointment.id }} {{ appointment.title }}
+      {{ appointment.date | date : "MM-dd-YYYY" }}
+      <button class="btn btn-danger" (click)="deleteAppointment(i)">
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
